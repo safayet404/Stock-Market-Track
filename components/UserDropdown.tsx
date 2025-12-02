@@ -15,14 +15,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LogOut } from "lucide-react";
 import NavItems from "./NavItems";
 
-const UserDropdown = () => {
+const UserDropdown = ({ user }: { user: User }) => {
   const router = useRouter();
 
   const handleSignOut = async () => {
     router.push("/sign-in");
   };
 
-  const user = { name: "John", email: "contact@gmil.com" };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -33,13 +32,13 @@ const UserDropdown = () => {
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" />
             <AvatarFallback className="bg-yellow-500 text-yellow-900 text-sm font-bold">
-              {user.name[0]}
+              {user?.name[0]}
             </AvatarFallback>
           </Avatar>
 
           <div className="hidden md:block md-flex flex-col items-start">
             <span className="text-base font-medium text-gray-400">
-              {user.name}
+              {user?.name}
             </span>
           </div>
         </Button>
@@ -50,16 +49,16 @@ const UserDropdown = () => {
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback className="bg-yellow-500 text-yellow-900 text-sm font-bold">
-                {user.name[0]}
+                {user?.name[0]}
               </AvatarFallback>
             </Avatar>
 
             <div className="flex flex-col">
               <span className="text-base font-medium text-gray-400">
-                {user.name}
+                {user?.name}
               </span>
 
-              <span className="text-sm  text-gray-400">{user.email}</span>
+              <span className="text-sm  text-gray-400">{user?.email}</span>
             </div>
           </div>
         </DropdownMenuLabel>
