@@ -12,7 +12,6 @@ import {
   RISK_TOLERANCE_OPTIONS,
 } from "@/lib/constants";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
