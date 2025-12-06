@@ -12,14 +12,15 @@ import {
 import { Button } from "./ui/button";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { LogOut } from "lucide-react";
 import NavItems from "./NavItems";
 import { signOut } from "@/lib/actions/auth.actions";
-import { searchStocks } from "@/lib/actions/finnhub.actions";
 
-const UserDropdown = async ({ user }: { user: User }) => {
-  const initialStocks = await searchStocks();
+type UserDropdownProps = {
+  user: User;
+  initialStocks: StockWithWatchlistStatus[];
+};
 
+const UserDropdown = ({ user, initialStocks }: UserDropdownProps) => {
   const router = useRouter();
 
   const handleSignOut = async () => {
