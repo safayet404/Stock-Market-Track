@@ -15,8 +15,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LogOut } from "lucide-react";
 import NavItems from "./NavItems";
 import { signOut } from "@/lib/actions/auth.actions";
+import { searchStocks } from "@/lib/actions/finnhub.actions";
 
-const UserDropdown = ({ user }: { user: User }) => {
+const UserDropdown = async ({ user }: { user: User }) => {
+  const initialStocks = await searchStocks();
+
   const router = useRouter();
 
   const handleSignOut = async () => {
@@ -76,7 +79,7 @@ const UserDropdown = ({ user }: { user: User }) => {
 
         <DropdownMenuSeparator className="block sm:hidden bg-gray-600" />
         <nav className="sm:hidden">
-          <NavItems />
+          <NavItems initialStocks={initialStocks} />
         </nav>
       </DropdownMenuContent>
     </DropdownMenu>
