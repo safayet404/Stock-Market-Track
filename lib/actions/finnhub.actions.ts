@@ -137,7 +137,10 @@ export const searchStocks = cache(
               )}&token=${token}`;
               // Revalidate every hour
               const profile = await fetchJSON<any>(url, 3600);
-              return { sym, profile } as { sym: string; profile: any };
+              return { sym, profile } as {
+                sym: string;
+                profile: FinnhubProfile | null;
+              };
             } catch (e) {
               console.error("Error fetching profile2 for", sym, e);
               return { sym, profile: null } as { sym: string; profile: any };

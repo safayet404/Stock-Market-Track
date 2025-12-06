@@ -5,7 +5,6 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -40,6 +39,7 @@ const SelectField = ({
               <SelectGroup className="bg-gray-800 border-gray-600 text-white">
                 {options.map((option) => (
                   <SelectItem
+                    key={option.label}
                     value={option.value}
                     className="focus:bg-gray-600 focus:text-white"
                   >

@@ -101,6 +101,12 @@ declare global {
       symbol: string;
     }>;
   };
+  interface FinnhubProfile {
+    name?: string;
+    ticker?: string;
+    exchange?: string;
+    [key: string]: unknown;
+  }
 
   type WatchlistButtonProps = {
     symbol: string;
